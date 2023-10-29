@@ -1,0 +1,8 @@
+package: calculatorv1
+output: calculatorv1.gen.go
+generate:
+  strict-server: true
+  models: true
+  gorilla-server: true
+compatibility:
+  apply-gorilla-middleware-first-to-last: true

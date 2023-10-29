@@ -1,0 +1,101 @@
+---
+openapi: 3.1.0
+servers:
+  - url: /calculator/v1
+info:
+  title: Calculator API
+  version: "1"
+  description: The Calculator API implements an asynchronous calculator that creates and reads calculations.
+  contact:
+    name: Mukesh Kastala
+    url: https://www.linkedin.com/in/mukeshkastala/
+  license:
+    name: MIT
+    url: https://opensource.org/license/mit/
+tags:
+  - name: Calculator
+paths:
+  /calculations:
+    post:
+      operationId: createCalculation
+      tags:
+        - Calculator
+      description: Create a calculation
+      requestBody:
+        description: Object containing calculation creation parameters.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateCalculationRequest"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CalculationResponse"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        default:
+          $ref: "#/components/responses/DefaultError"
+components:
+  responses:
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    DefaultError:
+      description: Error
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+  schemas:
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+      required:
+        - code
+        - message
+    CalculationResponse:
+      type: object
+      required:
+        - id
+        - owner
+        - expression
+        - result
+        - created
+        - completed
+      properties:
+        id:
+          type: string
+          format: uuid
+        owner:
+          type: string
+        expression:
+          type: string
+        result:
+          type: string
+        created:
+          type: string
+          format: date-time
+        completed:
+          type: string
+          format: date-time
+    CreateCalculationRequest:
+      type: object
+      required:
+        - owner
+        - expression
+      properties:
+        owner:
+          type: string
+        expression:
+          type: string
+          maxLength: 10
