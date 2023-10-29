@@ -1,3 +1,7 @@
+github.com/MukeshGKastala/nola-otel-demo v0.0.0-20231029183416-b0526b35b472 h1:Xw3hNLe1EvYF+Fm9JBFKtnPtau9dXoIXhvQv3NKcrVQ=
+github.com/MukeshGKastala/nola-otel-demo v0.0.0-20231029183416-b0526b35b472/go.mod h1:fh3fRaPa2VY+9pti9dmsetErxqNdfLm0WAY5vEbhDPk=
+github.com/MukeshGKastala/nola-otel-demo/common v0.0.0-20231029183416-b0526b35b472 h1:Okmw0cna2ozm1Li9MktzQyIZk8PgEO1e20ELJ0XO9VA=
+github.com/MukeshGKastala/nola-otel-demo/common v0.0.0-20231029183416-b0526b35b472/go.mod h1:lmw2cvOjTxYPVv+E3eEaL9DlEXlceXJ2gUYg13rx+qw=
 github.com/creack/pty v1.1.9/go.mod h1:oKZEueFk5CKHvIhNR5MUki03XCEU+Q6VDXinZuGJ33E=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=

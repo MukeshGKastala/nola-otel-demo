@@ -5,8 +5,8 @@ import (
 	"log"
 	"net/http"
 
-	api "github.com/MukeshGKastala/nola-otel-demo/api/calculator/v1"
 	otelcommon "github.com/MukeshGKastala/nola-otel-demo/common/otel"
+	api "github.com/MukeshGKastala/nola-otel-demo/server/api/calculator/v1"
 	"github.com/MukeshGKastala/nola-otel-demo/server/service"
 	"github.com/MukeshGKastala/nola-otel-demo/server/store/postgre"
 )

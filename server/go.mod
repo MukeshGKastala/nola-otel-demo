@@ -3,6 +3,8 @@ module github.com/MukeshGKastala/nola-otel-demo/server
 go 1.21.0
 
 require (
+	github.com/MukeshGKastala/nola-otel-demo v0.0.0-20231029183416-b0526b35b472 // indirect
+	github.com/MukeshGKastala/nola-otel-demo/common v0.0.0-20231029183416-b0526b35b472 // indirect
 	github.com/deepmap/oapi-codegen v1.16.2 // indirect
 	github.com/felixge/httpsnoop v1.0.3 // indirect
 	github.com/getkin/kin-openapi v0.118.0 // indirect
