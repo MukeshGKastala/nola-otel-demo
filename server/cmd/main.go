@@ -8,7 +8,7 @@ import (
 	otelcommon "github.com/MukeshGKastala/nola-otel-demo/common/otel"
 	api "github.com/MukeshGKastala/nola-otel-demo/server/api/calculator/v1"
 	"github.com/MukeshGKastala/nola-otel-demo/server/service"
-	"github.com/MukeshGKastala/nola-otel-demo/server/store/postgre"
+	"github.com/MukeshGKastala/nola-otel-demo/server/store/postgres"
 )
 
 func main() {
@@ -28,7 +28,7 @@ func main() {
 		}
 	}()
 
-	_, err = postgre.NewAndMigrate(ctx, postgre.Config{
+	_, err = postgres.NewAndMigrate(ctx, postgres.Config{
 		Host:         "localhost:5432",
 		User:         "admin",
 		Password:     "admin",
