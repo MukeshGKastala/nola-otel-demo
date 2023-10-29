@@ -2,20 +2,20 @@ package service
 
 import (
 	"context"
-	"time"
+	"net/http"
 
 	otelcommon "github.com/MukeshGKastala/nola-otel-demo/common/otel"
 	api "github.com/MukeshGKastala/nola-otel-demo/server/api/calculator/v1"
+	"github.com/MukeshGKastala/nola-otel-demo/server/store/postgres"
 	"go.opentelemetry.io/otel/attribute"
 )
 
 type service struct {
+	store postgres.Querier
 }
 
-var _ api.StrictServerInterface = (*service)(nil)
-
-func NewService() *service {
-	return &service{}
+func NewService(store postgres.Querier) *service {
+	return &service{store: store}
 }
 
 func (s *service) CreateCalculation(ctx context.Context, request api.CreateCalculationRequestObject) (api.CreateCalculationResponseObject, error) {
@@ -24,15 +24,26 @@ func (s *service) CreateCalculation(ctx context.Context, request api.CreateCalcu
 
 	span.SetAttributes(
 		attribute.String("expression", request.Body.Expression),
-		attribute.String("owner", request.Body.Owner),
+		attribute.String("student", request.Body.Student),
 	)
 
-	// Imitate work
-	time.Sleep(1 * time.Second)
+	calc, err := s.store.CreateCalculation(ctx, postgres.CreateCalculationParams{
+		Student:    request.Body.Student,
+		Expression: request.Body.Expression,
+	})
+	if err != nil {
+		return api.CreateCalculationdefaultJSONResponse{
+			StatusCode: http.StatusInternalServerError,
+			Body: api.Error{
+				Message: "database write failure",
+			},
+		}, nil
+	}
 
 	return api.CreateCalculation200JSONResponse{
-		Created:    time.Now(),
-		Expression: request.Body.Expression,
-		Owner:      request.Body.Owner,
+		Id:         calc.ID,
+		Created:    calc.Created,
+		Expression: calc.Expression,
+		Student:    calc.Student,
 	}, nil
 }

@@ -21,14 +21,14 @@ type CalculationResponse struct {
 	Created    time.Time          `json:"created"`
 	Expression string             `json:"expression"`
 	Id         openapi_types.UUID `json:"id"`
-	Owner      string             `json:"owner"`
 	Result     string             `json:"result"`
+	Student    string             `json:"student"`
 }
 
 // CreateCalculationRequest defines model for CreateCalculationRequest.
 type CreateCalculationRequest struct {
 	Expression string `json:"expression"`
-	Owner      string `json:"owner"`
+	Student    string `json:"student"`
 }
 
 // Error defines model for Error.

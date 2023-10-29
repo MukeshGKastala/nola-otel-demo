@@ -29,7 +29,7 @@ func main() {
 		}
 	}()
 
-	_, err = postgres.NewAndMigrate(ctx, postgres.Config{
+	conn, err := postgres.NewAndMigrate(ctx, postgres.Config{
 		Host:         os.Getenv("POSTGRES_HOST"),
 		User:         os.Getenv("POSTGRES_USER"),
 		Password:     os.Getenv("POSTGRES_PASSWORD"),
@@ -38,9 +38,10 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	defer conn.Close(ctx)
 
 	server := &http.Server{
-		Handler: api.MakeHTTPHandler(service.NewService()),
+		Handler: api.MakeHTTPHandler(service.NewService(postgres.New(conn))),
 	}
 
 	log.Fatal(server.ListenAndServe())

@@ -67,7 +67,7 @@ components:
       type: object
       required:
         - id
-        - owner
+        - student
         - expression
         - result
         - created
@@ -76,7 +76,7 @@ components:
         id:
           type: string
           format: uuid
-        owner:
+        student:
           type: string
         expression:
           type: string
@@ -91,10 +91,10 @@ components:
     CreateCalculationRequest:
       type: object
       required:
-        - owner
+        - student
         - expression
       properties:
-        owner:
+        student:
           type: string
         expression:
           type: string

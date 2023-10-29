@@ -9,7 +9,7 @@ import (
 	"github.com/golang-migrate/migrate/v4"
 	"github.com/golang-migrate/migrate/v4/database/postgres"
 	_ "github.com/golang-migrate/migrate/v4/source/file"
-	_ "github.com/jackc/pgx/v5"
+	"github.com/jackc/pgx/v5"
 )
 
 type Config struct {
@@ -19,23 +19,23 @@ type Config struct {
 	DatabaseName string
 }
 
-func NewAndMigrate(ctx context.Context, cfg Config) (*sql.DB, error) {
+func NewAndMigrate(ctx context.Context, cfg Config) (*pgx.Conn, error) {
 	dsn := fmt.Sprintf("postgres://%s:%s@%s/%s?sslmode=disable", cfg.User, cfg.Password, cfg.Host, cfg.DatabaseName)
 
 	if err := runMigrations(ctx, dsn); err != nil {
 		return nil, err
 	}
 
-	db, err := sql.Open("postgres", dsn)
+	conn, err := pgx.Connect(ctx, dsn)
 	if err != nil {
 		return nil, err
 	}
 
-	if err := db.Ping(); err != nil {
+	if err := conn.Ping(ctx); err != nil {
 		return nil, err
 	}
 
-	return db, nil
+	return conn, nil
 }
 
 func runMigrations(ctx context.Context, dsn string) error {
