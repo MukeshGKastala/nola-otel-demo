@@ -14,7 +14,7 @@ type service struct {
 
 var _ api.StrictServerInterface = (*service)(nil)
 
-func NewsSrvice() *service {
+func NewService() *service {
 	return &service{}
 }
 

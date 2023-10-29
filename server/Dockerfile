@@ -19,7 +19,7 @@ FROM scratch
 COPY --from=build /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
 COPY --from=build /etc/passwd /etc/passwd
 
-COPY --from=build /app/store/postgre/migration /migration
+COPY --from=build /app/store/postgres/migration /migration
 COPY --from=build /app/bin/nola_otel_server /bin/nola_otel_server
 
 USER nola_otel_server

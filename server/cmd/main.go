@@ -4,6 +4,7 @@ import (
 	"context"
 	"log"
 	"net/http"
+	"os"
 
 	otelcommon "github.com/MukeshGKastala/nola-otel-demo/common/otel"
 	api "github.com/MukeshGKastala/nola-otel-demo/server/api/calculator/v1"
@@ -29,17 +30,17 @@ func main() {
 	}()
 
 	_, err = postgres.NewAndMigrate(ctx, postgres.Config{
-		Host:         "localhost:5432",
-		User:         "admin",
-		Password:     "admin",
-		DatabaseName: "nola_otel_demo_db",
+		Host:         os.Getenv("POSTGRES_HOST"),
+		User:         os.Getenv("POSTGRES_USER"),
+		Password:     os.Getenv("POSTGRES_PASSWORD"),
+		DatabaseName: os.Getenv("POSTGRES_DB"),
 	})
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	server := &http.Server{
-		Handler: api.MakeHTTPHandler(service.NewsSrvice()),
+		Handler: api.MakeHTTPHandler(service.NewService()),
 	}
 
 	log.Fatal(server.ListenAndServe())

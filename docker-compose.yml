@@ -1,9 +1,9 @@
 version: '3'
 services:
-  postgres:
+  db:
     image: postgres:latest
-    container_name: postgres
-    hostname: postgres
+    container_name: db
+    hostname: db
     restart: always
     ports:
       - "5432:5432"
@@ -22,9 +22,15 @@ services:
     image: server
     restart: always
     ports:
-      - "8080:8080"
+      - "80:80"
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_HOST: db
+      POSTGRES_DB: nola_otel_demo_db
+      OTEL_EXPORTER_OTLP_ENDPOINT: https://otel-collector:4317
     depends_on:
-      postgres:
+      db:
         condition: service_healthy
 
   otel-collector:
