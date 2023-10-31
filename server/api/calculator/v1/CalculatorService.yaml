@@ -1,0 +1,133 @@
+---
+openapi: 3.1.0
+servers:
+  - url: /calculator/v1
+info:
+  title: Calculator API
+  version: "1"
+  description: The Calculator API implements an asynchronous calculator that creates and reads calculations.
+  contact:
+    name: Mukesh Kastala
+    url: https://www.linkedin.com/in/mukeshkastala/
+  license:
+    name: MIT
+    url: https://opensource.org/license/mit/
+tags:
+  - name: Calculator
+paths:
+  /calculations:
+    post:
+      operationId: createCalculation
+      tags:
+        - Calculator
+      description: Create a calculation
+      requestBody:
+        description: Object containing calculation creation parameters.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateCalculationRequest"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CreateCalculationResponse"
+        default:
+          $ref: "#/components/responses/DefaultError"
+  /calculations/{uuid}:
+    get:
+      operationId: getCalculation
+      tags:
+        - Calculator
+      description: Get a single calculation
+      parameters:
+        - name: uuid
+          description: The uuid of the calculation to get
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CalculationResponse"
+        '404':
+          $ref: '#/components/responses/NotFound'
+        default:
+          $ref: '#/components/responses/DefaultError'
+components:
+  responses:
+    NotFound:
+      description: The specified resource was not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    DefaultError:
+      description: Error
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+  schemas:
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+      required:
+        - code
+        - message
+    CalculationResponse:
+      type: object
+      required:
+        - id
+        - student
+        - expression
+        - result
+        - created
+        - completed
+      properties:
+        id:
+          type: string
+          format: uuid
+        student:
+          type: string
+        expression:
+          type: string
+        result:
+          type: number
+          format: double
+        created:
+          type: string
+          format: date-time
+        completed:
+          type: string
+          format: date-time
+    CreateCalculationRequest:
+      type: object
+      required:
+        - student
+        - expression
+      properties:
+        student:
+          type: string
+        expression:
+          type: string
+          maxLength: 10
+    CreateCalculationResponse:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: string
+          format: uuid

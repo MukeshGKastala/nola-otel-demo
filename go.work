@@ -1,0 +1,9 @@
+go 1.21.3
+
+use (
+	./common
+	./client
+	./server
+	./server/api
+	./calculator
+)
