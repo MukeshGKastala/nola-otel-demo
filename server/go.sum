@@ -2,12 +2,10 @@ github.com/Azure/go-ansiterm v0.0.0-20230124172434-306776ec8161 h1:L/gRVlceqvL25
 github.com/Azure/go-ansiterm v0.0.0-20230124172434-306776ec8161/go.mod h1:xomTg63KZ2rFqZQzSB4Vz2SUXa1BpHTVz9L5PTmPC4E=
 github.com/Microsoft/go-winio v0.6.1 h1:9/kr64B9VUZrLm5YYwbGtUJnMgqWVOdUAXu6Migciow=
 github.com/Microsoft/go-winio v0.6.1/go.mod h1:LRdKpFKfdobln8UmuiYcKPot9D2v6svN5+sAH+4kjUM=
-github.com/MukeshGKastala/nola-otel-demo/common v0.0.0-20231030180903-8d8607fcd79c h1:f1Kurpu9lc1Yze0phIPMeKXbiRybKBgu96b0/e1HNqs=
-github.com/MukeshGKastala/nola-otel-demo/common v0.0.0-20231030180903-8d8607fcd79c/go.mod h1:IgUbhwZ6JJlLOriidk6dSoo1fnO9rXPgUoM/aiyXLxE=
-github.com/MukeshGKastala/nola-otel-demo/server/api v0.0.0-20231030180903-8d8607fcd79c h1:Z11WhQSGOiNMMhjtRiIBqn0eLy/1yu3ZD1RNQUD3TKc=
-github.com/MukeshGKastala/nola-otel-demo/server/api v0.0.0-20231030180903-8d8607fcd79c/go.mod h1:z+pS0PvEAPGS26c/IC+IsZormYWKjagv4tWpX9PEg6s=
-github.com/MukeshGKastala/nola-otel-demo/server/api v0.0.0-20231031173627-7c5a05a81269 h1:ubQgkaYGOf+oaxeimc0UHjlZ9ImPdpYNNb4uIpLV5/U=
-github.com/MukeshGKastala/nola-otel-demo/server/api v0.0.0-20231031173627-7c5a05a81269/go.mod h1:321gotAceAzsD3ix9r9Rhl6ydcu3F+P0DXMd6CnDYp0=
+github.com/MukeshGKastala/nola-otel-demo/common v0.0.0-20231031184159-413db3c54b1a h1:TJX5dIedKePOOWO47G3TY73hY53hh1/3KIdOkJmt/KI=
+github.com/MukeshGKastala/nola-otel-demo/common v0.0.0-20231031184159-413db3c54b1a/go.mod h1:IgUbhwZ6JJlLOriidk6dSoo1fnO9rXPgUoM/aiyXLxE=
+github.com/MukeshGKastala/nola-otel-demo/server/api v0.0.0-20231031184159-413db3c54b1a h1:W5G+ESPraHAvFNOgu02cgZ9f9ApRpaqhPsxZyDKjr7c=
+github.com/MukeshGKastala/nola-otel-demo/server/api v0.0.0-20231031184159-413db3c54b1a/go.mod h1:321gotAceAzsD3ix9r9Rhl6ydcu3F+P0DXMd6CnDYp0=
 github.com/RaveNoX/go-jsoncommentstrip v1.0.0/go.mod h1:78ihd09MekBnJnxpICcwzCMzGrKSKYe4AqU6PDYYpjk=
 github.com/apapsch/go-jsonmerge/v2 v2.0.0 h1:axGnT1gRIfimI7gJifB699GoE/oq+F2MU7Dml6nw9rQ=
 github.com/apapsch/go-jsonmerge/v2 v2.0.0/go.mod h1:lvDnEdqiQrp0O42VQGgmlKpxL1AP2+08jFMw88y4klk=

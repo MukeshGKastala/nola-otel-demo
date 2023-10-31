@@ -3,7 +3,7 @@ module github.com/MukeshGKastala/nola-otel-demo/client
 go 1.21.3
 
 require (
-	github.com/MukeshGKastala/nola-otel-demo/common v0.0.0-20231030003643-94fe925eef7b
+	github.com/MukeshGKastala/nola-otel-demo/common v0.0.0-20231031184159-413db3c54b1a
 	github.com/google/uuid v1.3.1
 	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.45.0
 )

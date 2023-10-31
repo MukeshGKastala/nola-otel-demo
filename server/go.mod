@@ -3,8 +3,8 @@ module github.com/MukeshGKastala/nola-otel-demo/server
 go 1.21.3
 
 require (
-	github.com/MukeshGKastala/nola-otel-demo/common v0.0.0-20231030180903-8d8607fcd79c
-	github.com/MukeshGKastala/nola-otel-demo/server/api v0.0.0-20231031173627-7c5a05a81269
+	github.com/MukeshGKastala/nola-otel-demo/common v0.0.0-20231031184159-413db3c54b1a
+	github.com/MukeshGKastala/nola-otel-demo/server/api v0.0.0-20231031184159-413db3c54b1a
 	github.com/aws/aws-sdk-go-v2 v1.21.2
 	github.com/aws/aws-sdk-go-v2/service/sqs v1.24.7
 	github.com/exaring/otelpgx v0.5.2
