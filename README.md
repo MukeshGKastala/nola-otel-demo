@@ -1,2 +1,2 @@
 # nola-otel-demo
-Theta Lake New Orleans OpenTelemetry Demo
+New Orleans OpenTelemetry Demo
