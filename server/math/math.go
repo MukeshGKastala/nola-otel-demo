@@ -118,6 +118,7 @@ func (h *handler) receiveMessages(ctx context.Context) error {
 			if err := json.Unmarshal([]byte(*msg.Body), &rslt); err != nil {
 				span.RecordError(err)
 				span.SetStatus(codes.Error, err.Error())
+				span.End()
 				return err
 			}
 
@@ -134,6 +135,7 @@ func (h *handler) receiveMessages(ctx context.Context) error {
 			}); err != nil {
 				span.RecordError(err)
 				span.SetStatus(codes.Error, err.Error())
+				span.End()
 				return err
 			}
 
@@ -143,6 +145,7 @@ func (h *handler) receiveMessages(ctx context.Context) error {
 			}); err != nil {
 				span.RecordError(err)
 				span.SetStatus(codes.Error, err.Error())
+				span.End()
 				return err
 			}
 
