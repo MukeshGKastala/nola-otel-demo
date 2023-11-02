@@ -72,6 +72,7 @@ func main() {
 			return err
 		}
 
+		log.Println("Calculation Id:", resp.Id)
 		return nil
 	}(); err != nil {
 		log.Fatal(err)
