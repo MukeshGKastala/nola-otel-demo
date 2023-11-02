@@ -38,7 +38,7 @@ type calculator struct {
 	writeQueueUrl string
 }
 
-func (c *calculator) calculate(ctx context.Context) error {
+func (c *calculator) process(ctx context.Context) error {
 	gMInput := &sqs.ReceiveMessageInput{
 		MessageAttributeNames: []string{"b3"},
 		QueueUrl:              aws.String(c.readQueueUrl),
@@ -195,5 +195,5 @@ func main() {
 		writeQueueUrl: writeQueueUrl,
 	}
 
-	log.Fatal(calc.calculate(ctx))
+	log.Fatal(calc.process(ctx))
 }
